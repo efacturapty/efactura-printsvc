@@ -8,27 +8,22 @@ Para utilizar **Efactura Printer** debe contar con una cuenta de Efacturapty, la
 
 # Instalación y configuración
 
-Descargue el zip de Efactura Printer Release v1.0.0 y descomprima en una carpeta local.
+**Requisitos Previos:**
+1. Contar con una impresora configurada en su sistema.
+2. Descargar el archivo ZIP que contiene todos los ejecutables necesarios para la instalación de Efactura Printer.
 
-Descargue el programa [PDFtoPrinter for Windows](https://mendelson.org/pdftoprinter.html).
+**Paso 1: Descarga y Extracción de Archivos**
+1. **Descarga**: Descargar el archivo ZIP de **Efactura Printer Release v1.0.0** desde el sitio oficial.
+2. **Extracción**: Descomprimir el archivo ZIP en una carpeta local de tu elección.
 
-Edite el archivo **appsetting.json** para configurar los siguientes valores:
-
-- **PrinterPdfAppPath**: Ruta y nombre del archivo de impresión de pdf (PDFtoPrinter) que se descargó. Por ejemplo: I:\\printtopdf\\PDFtoPrinter.exe
-
-- **PrinterName**: Nombre de la impresora que se usará.
-
-- **APIKey**: API Key generado en el sitio admin.efacturapty.com
-
-- **CafeDownloadPath**: Carpeta que debe crear manualmente en la que se guardan las facturas descargadas para su impresión.
-
-- **RucEmitter**: RUC del contribuyente emisor de la factura.
-
-- **CafeTemplate**: tipo de impresión que puede ser: **carta** o **termica**
-
-- **Facturacion**: Lista de sucursales y puntos de facturación que se imprimirán desde esta impresora, Tiene el formato de lista:
-
-      [{
+**Paso 2: Configuración de la Aplicación**
+1. **Edición del archivo** '**appsetting.json**': Dentro de la carpeta descomprimida, localiza y edita el archivo '**appsetting.json**' para configurar los siguientes valores:
+   
+   - '**APIKey**': Inserta el API Key generado en admin.efacturapty.com.
+   - '**RucEmitter**': Ingresa el RUC del contribuyente emisor.
+   - '**Facturacion**': Configura la lista de sucursales y puntos de facturación que esta impresora gestionará.
+     
+     [{
   
         "CodigoSucursal": "0000","PuntosFacturacion": ["100","102"]
   
@@ -39,19 +34,27 @@ Edite el archivo **appsetting.json** para configurar los siguientes valores:
         "CodigoSucursal": "0002","PuntosFacturacion": ["200","202"]
   
       }]`
+   
 
-Kestrel/Endpoints/Http/Url: Permite establecer el puerto local que utilizará el servicio para recibir las peticiones.
+**Paso 3: Configuración para Ejecución Automática al Iniciar Windows**
 
-# Creación del servicio
+1. **Crear Acceso Directo**:
+   
+   - Abre la carpeta donde se extrajo Efactura Printer.
+   - Haz clic derecho en el archivo ejecutable ('**EfacturaPrinter.exe**') y selecciona **Crear acceso directo**.
 
-Desde línea de comando, con privilegio de Administrador ejecutar:
+2. **Mover Acceso Directo a la Carpeta de Inicio**:
 
-`sc.exe create "efacturaPrinter " binpath=ubicacion\_ efacturaPrinter \_exe`
+   - Presiona la tecla del logotipo de Windows + R.
+   - En el cuadro de diálogo de ejecución, escribe '**shell:startup**' y presiona '**Aceptar**'. Se abrirá la carpeta "Inicio" de Windows.
+   - Copia el acceso directo creado en el paso anterior y pégalo en esta carpeta.
 
-Desde la consola de Servicios de Windows, se debe configurar el servicio **Efactura Printer** para que lo use la cuenta del usuario con la que se hará uso del servicio. Debe ingresarse la contraseña de la cuenta o del correo asociado a la cuenta.
+**Paso 4: Prueba de Funcionamiento**
 
-![ServiceLogOn](https://github.com/efacturapty/efactura-printsvc/assets/146016561/11fd58f4-f899-4e21-a210-067b3a3ee541)
+1. Reinicia tu computadora.
+2. Verifica que Efactura Printer se ejecute automáticamente al iniciar Windows.
+3. Comprueba que la aplicación funcione correctamente enviando una factura de prueba desde tu sistema Efacturapty y asegurándote de que se imprima automáticamente.
 
-Igualmente, desde la consola de Servicios de Windows, puede configurar el servicio Efactura Printer para que inicie en forma automática, cada que inicie Windows.
+Siguiendo estos pasos, habrá instalado y configurado correctamente Efactura Printer para su ejecución automática al iniciar Windows.
 
-![ServiceStartUp](https://github.com/efacturapty/efactura-printsvc/assets/146016561/0873d105-9c76-4a87-bb5b-d51e83c965f3)
+
