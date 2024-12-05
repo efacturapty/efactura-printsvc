@@ -11,10 +11,10 @@ Para utilizar **efactura Printer** debe contar con una cuenta de Efacturapty, la
 **Requisitos Previos:**
 1. Contar con una impresora configurada en su sistema.
 2. Descargar el archivo ZIP que contiene todos los ejecutables necesarios para la instalación de efactura Printer.
-3. Habilitar la opción de Impresión Automática, en la sección Personalizar de [https://admin.efacturapty.com]
+3. Habilitar la opción de Impresión Automática, en la sección Personalizar de [https://admin.efacturapty.com](https://admin.efacturapty.com)
 
 **Paso 1: Descarga y Extracción de Archivos**
-1. **Descarga**: Descargar la última versión del archivo ZIP de **efactura Printer** desde la sección de [https://github.com/efacturapty/efactura-printsvc/releases](Releases).
+1. **Descarga**: Descargar la última versión del archivo ZIP de **efactura Printer** desde la sección de [Realeses](https://github.com/efacturapty/efactura-printsvc/releases)
 2. **Extracción**: Descomprimir el archivo ZIP en una carpeta local de tu elección.
 
 **Paso 2: Configuración de la Aplicación**
